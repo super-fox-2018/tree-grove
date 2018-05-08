@@ -2,9 +2,9 @@ class FruitTree {
 
   constructor(obj) {
     this._age = obj.age;
-    this._height = obj.plantHeight;
-    // this._amtGrow = 30;
-    // this._maxFruit = ;
+    this._height = obj.height;
+    this._amtGrow = obj.amtGrow;
+    this._maxFruit = obj.maxFruit;
     this._produced = obj.produced;
     this._harvested = obj.harvested;
     this._healtyStatus = obj.healthyStatus;
@@ -56,7 +56,7 @@ class FruitTree {
   produceFruits() {
     this._badCount = 0;
     this._goodCount = 0;
-    if(this._age > 1){
+    if(this._age > this._matureAge){
       var ran = Math.floor(Math.random() * this._maxFruit + 1);
       for(let i=0; i<ran; i++) {
         let fruit = new Fruit()
@@ -203,4 +203,4 @@ class Fruit {
 
 
 
-module.exports = FruitTree
+module.exports = {FruitTree, Fruit}
