@@ -1,6 +1,6 @@
-// const MangoTree = require('./mango_tree.js');
-// const AppleTree = require('./apple_tree.js');
-// const PearTree = require('./pear_tree.js');
+const MangoTree = require('./mango_tree.js');
+const AppleTree = require('./apple_tree.js');
+const PearTree = require('./pear_tree.js');
 
 class TreeGrove {
 	constructor(){
@@ -8,13 +8,13 @@ class TreeGrove {
         this._mature = []
         this._dead = []
 	}
-	inputTree(treeName,age,height,matureAge,healthStat){
+	inputTree(treeName,age,height,matureAge,healthStat,maxUmur){
 		if (treeName === "MangoTree"){
-            this._trees.push(new MangoTree(treeName, age, height, matureAge, healthStat))
+            this._trees.push(new MangoTree(treeName, age, height, matureAge, healthStat, maxUmur))
         } else if (treeName === "AppleTree"){
-            this._trees.push(new AppleTree(treeName, age, height, matureAge, healthStat))
+            this._trees.push(new AppleTree(treeName, age, height, matureAge, healthStat, maxUmur))
         } else {
-            this._trees.push(new PearTree(treeName, age, height, matureAge, healthStat))
+            this._trees.push(new PearTree(treeName, age, height, matureAge, healthStat, maxUmur))
         }
 	}
 	showAge(){
@@ -51,44 +51,23 @@ class TreeGrove {
 	nextYear(){
 		let pohon = this._trees
 		for(var i=0;i<pohon.length;i++){
-			if (pohon[i]._umur<=pohon[i]._maxUmur) {
+			if (pohon[i]._umur===pohon[i]._maxUmur) {
+				pohon[i]._umur+=0
+			}
+			else{
 				pohon[i]._umur+=1
 			}
+			if (pohon[i]._umur===pohon[i]._maxUmur) {
+				pohon[i]._isHealthy = false
+			}
+			console.log(`${pohon[i]._treeName} umurnya ${pohon[i]._umur}`)
 		}
+		console.log('')
 	}
+}
 
 
-}
-class MangoTree{
-    constructor(treeName,umurAwal,tinggiAwal,umurMature,isHealthy){
-    	this._treeName = treeName
-        this._umur = umurAwal
-        this._tinggi = tinggiAwal
-        this._mature = umurMature
-        this._isHealthy = isHealthy
-        this._maxUmur = 20
-    }
-}
-class AppleTree{
-    constructor(treeName,umurAwal,tinggiAwal,umurMature,isHealthy){
-    	this._treeName = treeName
-        this._umur = umurAwal
-        this._tinggi = tinggiAwal
-        this._mature = umurMature
-        this._isHealthy = isHealthy
-        this._maxUmur = 20
-    }
-}
-class PearTree{
-    constructor(treeName,umurAwal,tinggiAwal,umurMature,isHealthy){
-    	this._treeName = treeName
-        this._umur = umurAwal
-        this._tinggi = tinggiAwal
-        this._mature = umurMature
-        this._isHealthy = isHealthy
-        this._maxUmur = 20
-    }
-}
+
 
 var grove = new TreeGrove()
 // input your trees data !
@@ -97,23 +76,28 @@ var grove = new TreeGrove()
 // pamareter ke-3: tinggi pohon pertama kali ketika ditanam di taman tersebut
 // parameter ke-4: umur mature pohon tersebut
 // parameter ke-5: healthyStatus dari pohon tersebut ketika ditanam
-grove.inputTree("MangoTree", 3, 1.8, 7,true)
-grove.inputTree("MangoTree", 5, 2.4, 12,true)
-grove.inputTree("AppleTree", 4, 1.2, 5,true)
-grove.inputTree("PearTree", 7, 2, 15,true)
+grove.inputTree("MangoTree", 3, 1.8, 7,true,20)
+grove.inputTree("MangoTree", 5, 2.4, 12,true,20)
+grove.inputTree("AppleTree", 4, 1.2, 5,true,20)
+grove.inputTree("PearTree", 7, 2, 15,true,20)
 //console.log(grove._trees)
 
-//next year
-//grove.nextYear()
+// next year
+ do {
+     grove.nextYear()
+     //console.log(groves)
+   } while (grove._trees[0]._isHealthy != false || grove._trees[1]._isHealthy != false || grove._trees[2]._isHealthy != false || grove._trees[3]._isHealthy != false)
 
-// show trees age
-grove.showAge()
+console.log(grove)
 
-// show trees
-grove.showTrees()
+//show trees age
+// grove.showAge()
 
-// show trees
-grove.mature_trees()
+// // show trees
+// grove.showTrees()
 
-// show trees
-grove.dead_trees()
+// // show trees
+// grove.mature_trees()
+
+// // show trees
+// grove.dead_trees()
