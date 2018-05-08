@@ -31,7 +31,10 @@ class TreeGrove {
     console.log("-----------------------------------------");
 
     for(let i = 0; i < this._trees.length; i++){
-      this._trees[i]._age = parseInt(this._trees[i]._age) +1;
+      // this._trees[i]._age = parseInt(this._trees[i]._age) +1;
+      this._trees[i].grow()
+      this._trees[i].produceFruits()
+      this._trees[i].harvest()
     }
   }
 
@@ -137,10 +140,10 @@ var grove = new TreeGrove()
 // parameter ke-5: healthyStatus dari pohon tersebut ketika ditanam
 grove.inputTree("MangoTree", 3, 1.8, 7,true)
 grove.inputTree("MangoTree", 5, 2.4, 12,true)
-grove.inputTree("AppleTree", 4, 1.2, 5,true)
+grove.inputTree("AppleTree", 5, 1.2, 5,true)
 grove.inputTree("PearTree", 7, 2, 15,true)
 
-// next year
+next year
 // do{
   grove.nextYear()
 
