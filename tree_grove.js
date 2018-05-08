@@ -13,8 +13,11 @@ class TreeGrove {
             objTree = new myClass.MangoTree()
             objTree.age = age;
             objTree.height = height;
-            objTree.matureAge = matureAge;
+            objTree.matureAge = 1;
             objTree.healthyStatus = healthyStat;
+            // objTree.grow();
+            // objTree.produceMangoes();
+            // console.log(objTree);
         }
         if (objName === 'AppleTree') {
             objTree = new myClass.AppleTree();
@@ -39,7 +42,7 @@ class TreeGrove {
         console.log('-------Ages of Tree----------')
         if (this._trees.length !== 0) {
             for (let i = 0; i < this._trees.length; i++) {
-                console.log(`Pohon-${i+1} ${this._trees[i].constructor.name} ini berumur ${this._trees[i].age}`)
+                console.log(`Pohon-${i + 1} ${this._trees[i].constructor.name} ini berumur ${this._trees[i].age}`)
             }
         } else {
             console.log('------ Masukan Object Tree Terlebih dahulu -------');
@@ -63,7 +66,7 @@ class TreeGrove {
         if (this._trees.length !== 0) {
             for (let i = 0; i < this._trees.length; i++) {
                 if (this._trees[i].age >= this._trees[i].matureAge) {
-                    console.log(`Pohon-${i+1} ${this._trees[i].constructor.name} ini sudah mature age & berbuah`);
+                    console.log(`Pohon-${i + 1} ${this._trees[i].constructor.name} ini sudah mature age & berbuah`);
                 }
             }
         } else {
@@ -75,10 +78,10 @@ class TreeGrove {
         if (this._trees.length !== 0) {
             for (let i = 0; i < this._trees.length; i++) {
                 if (!this._trees[i].healthyStatus) {
-                    console.log(`Pohon-${i+1} ${this._trees[i].constructor.name} ini wis modyarr, umurnya ${this._trees[i].deadAge}`)
+                    console.log(`Pohon-${i + 1} ${this._trees[i].constructor.name} ini sudah mati, diumurnya ${this._trees[i].deadAge}`)
                 }
                 else {
-                    console.log (`Pohon-${i+1} ${this._trees[i].constructor.name} ini masih hidup, umurnya ${this._trees[i].age}`);
+                    console.log(`Pohon-${i + 1} ${this._trees[i].constructor.name} ini masih hidup, umurnya ${this._trees[i].age}`);
                 }
             }
         } else {
@@ -101,7 +104,9 @@ grove.inputTree("PearTree", 7, 2, 15, true)
 
 let counter = 1;
 while (counter <= 30) {
-    console.log(`------------- Looping ke ${counter} --------------`)
+    console.log(`*******************************************************`)
+    console.log(`--------------- Looping ke ${counter} -----------------`)
+    console.log(`*******************************************************`)
     // next year
     grove.nextYear()
 
