@@ -59,6 +59,10 @@ class TreeGrove {
         }
     }
     showTrees() {
+        console.log('-------Show All Trees----------')
+        for (let i = 0; i < this._trees.length; i++){
+            console.log (`Pohon-${i+1}: `, JSON.stringify(this._trees[i]));
+        }
 
     }
     matureTrees() {
