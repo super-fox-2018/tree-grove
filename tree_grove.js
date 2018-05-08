@@ -32,12 +32,14 @@ class TreeGrove {
   }
 
   showAges() {
-    const ages = [];
+    // const ages = [];
     for (let i = 0; i < this._trees.length; i += 1) {
+      const treesName = this._trees[i].name;
       const treesAge = this._trees[i].age;
-      ages.push(treesAge);
+      console.log(`${i+1}. ${treesName} : ${treesAge} years old.`)
+      // ages.push(treesAge);
     }
-    return ages;
+    // return ages;
   }
 
   showTrees() {
@@ -94,7 +96,7 @@ for (let i = 0; i < elapsedYears; i += 1) {
 }
 
 // Show trees age
-console.log('Ages: ', grove.showAges());
+grove.showAges();
 
 // Show trees
 console.log('Trees: ', grove.showTrees());

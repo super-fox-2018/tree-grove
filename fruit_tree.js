@@ -42,6 +42,41 @@ class FruitTree {
       this._healthyStatus = false;
     }
   }
+
+  produceFruits() {
+    if (this._age > this._matureAge && this.healthyStatus) {
+      const numOfFruits = Math.floor(Math.random() * 50 * this._age) + 1;
+      for (let i = 0; i < numOfFruits; i += 1) {
+        const fruit = new Fruit();
+        this._fruits.push(fruit);
+      }
+    }
+  }
+
+  harvest() {
+    this._harvested.total = this._fruits.length;
+    this._harvested.good = 0;
+    this._harvested.bad = 0;
+    for (let i = 0; i < this._harvested.total; i += 1) {
+      if (this._fruits[i].quality === 'Good') {
+        this._harvested.good += 1;
+      } else {
+        this._harvested.bad += 1;
+      }
+    }
+    this._fruits = [];
+  }
+}
+
+
+class Fruit {
+  constructor() {
+    this._quality = ['Good', 'Bad'][Math.floor(Math.random()*2)];
+  }
+
+  get quality() {
+    return this._quality;
+  }
 }
 
 module.exports = FruitTree;
