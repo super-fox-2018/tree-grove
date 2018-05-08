@@ -1,6 +1,6 @@
-const MangoTree = require('./mango_tree.js');
-const AppleTree = require('./apple_tree.js');
-const PearTree = require('./pear_tree.js');
+const MangoTree = require('./mango_tree');
+const AppleTree = require('./apple_tree');
+const PearTree = require('./pear_tree');
 
 class TreeGrove {
   constructor() {
