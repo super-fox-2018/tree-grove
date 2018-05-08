@@ -1,5 +1,4 @@
 const myClass = require('./tree.js');
-const Fruit = require('./tree.js');
 // const AppleTree = require('./apple_tree.js');
 // const PearTree = require('./pear_tree.js');
 
@@ -13,9 +12,9 @@ class TreeGrove {
             objTree = new myClass.MangoTree()
             objTree.age = age;
             objTree.height = height;
-            objTree.matureAge = 1;
+            objTree.matureAge = matureAge;
             objTree.healthyStatus = healthyStat;
-            // objTree.grow();
+            // // objTree.grow();
             // objTree.produceMangoes();
             // console.log(objTree);
         }
